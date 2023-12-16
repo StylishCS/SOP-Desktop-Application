@@ -1,0 +1,231 @@
+﻿<Window x:Class="SOP_Login_Page.AddProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SOP_Login_Page"
+        mc:Ignorable="d"
+        Title="AddProduct"
+        Width="1920"
+        Height="1080"
+        WindowState="Maximized">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle
+                            Margin="2"
+                            SnapsToDevicePixels="true"
+                            Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                            StrokeDashArray="1 2"
+                            StrokeThickness="1" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD" />
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070" />
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD" />
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1" />
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6" />
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B" />
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4" />
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5" />
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383" />
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}" />
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}" />
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Padding" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border
+                            x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="12"
+                            SnapsToDevicePixels="true">
+                            <ContentPresenter
+                                x:Name="contentPresenter"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Focusable="False"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <!--  Modify the background color here  -->
+                                <Setter TargetName="border" Property="Background" Value="#FF4D0C8A" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.MouseOver.Border}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource Button.Pressed.Background}" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.Pressed.Border}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource Button.Disabled.Background}" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.Disabled.Border}" />
+                                <Setter TargetName="contentPresenter" Property="TextElement.Foreground" Value="{StaticResource Button.Disabled.Foreground}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#15000000">
+        <Grid>
+
+            <Border
+                Width="341"
+                Margin="0,89,0,0"
+                HorizontalAlignment="Left"
+                Background="#FF760FD6"
+                CornerRadius="0,80,0,0" >
+                <Button
+                    Background="#FF760FD6"
+                    BorderThickness="0"
+                    Content="Logout"
+                    FontSize="25"
+                    FontStretch="Medium"
+                    Foreground="White"
+                    Style="{DynamicResource ButtonStyle1}" Margin="32,821,51,111" />
+            </Border>
+
+            <StackPanel
+                Width="282"
+                Height="914"
+                Margin="20,150,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top">
+
+                <Image Stretch="UniformToFill">
+                    <Image.Clip>
+                        <EllipseGeometry
+                            Center="50,50"
+                            RadiusX="300"
+                            RadiusY="300" />
+                    </Image.Clip>
+                    <Image.Source>
+                        <BitmapImage UriSource="https://res.cloudinary.com/dl0ohmbko/image/upload/v1701091067/members/dxtopsqklwpdqzgdyxia.png" />
+                    </Image.Source>
+                </Image>
+                <TextBlock
+                    Margin="10,30,0,150"
+                    FontSize="35"
+                    x:Name="name"/>
+                <Button
+                    Width="258"
+                    Height="43"
+                    Margin="0,0,0,30"
+                    Background="#FF760FD6"
+                    BorderThickness="0"
+                    Content="Inovices"
+                    FontSize="25"
+                    FontStretch="Medium"
+                    Foreground="White"
+                    Style="{DynamicResource ButtonStyle1}" />
+                <Button
+                    Width="258"
+                    Height="43"
+                    Margin="0,0,0,30"
+                    Background="#FF760FD6"
+                    BorderThickness="0"
+                    Content="Cart"
+                    FontSize="25"
+                    FontStretch="Medium"
+                    Foreground="White"
+                    Style="{DynamicResource ButtonStyle1}" />
+                <Button
+                    Width="258"
+                    Height="43"
+                    Margin="0,0,0,30"
+                    Background="#FF760FD6"
+                    BorderThickness="0"
+                    Content="Products"
+                    FontSize="25"
+                    FontStretch="Medium"
+                    Foreground="White"
+                    Style="{DynamicResource ButtonStyle1}"
+                    Click="NavProds"/>
+                <Button
+                    Width="258"
+                    Height="43"
+                    Background="#FF760FD6"
+                    BorderThickness="0"
+                    Content="Add Product"
+                    FontSize="25"
+                    FontStretch="Medium"
+                    Foreground="White"
+                    Style="{DynamicResource ButtonStyle1}"
+                    Click="NavAddProd"/>
+            </StackPanel>
+
+        </Grid>
+
+
+        <Grid
+            Width="1459"
+            Height="189"
+            Margin="451,58,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+
+            <Label
+                Width="228"
+                Height="47"
+                Margin="47,94,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Add Product"
+                FontFamily="Arial Black"
+                FontSize="30" />
+
+
+        </Grid>
+
+
+
+        <Grid
+            Width="1469"
+            Height="848"
+            Margin="451,216,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="White">
+
+            <StackPanel Margin="0,96,0,0">
+                <TextBlock Text="Product Name:" Height="50" Width="1008" FontSize="30" FontFamily="Arial" Margin="0,0,0,10"/>
+                <TextBox x:Name="productNameTextBox" Height="56" Width="1008" FontSize="30" FontFamily="Arial" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Product Net Price:" Height="50" Width="1008" FontSize="30" FontFamily="Arial" Margin="0,0,0,10"/>
+                <TextBox x:Name="productnetPriceTextBox" Height="56" Width="1008" FontSize="30" FontFamily="Arial" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Product Sell Price:" Height="50" Width="1008" FontSize="30" FontFamily="Arial" Margin="0,0,0,10"/>
+                <TextBox x:Name="productsellPriceTextBox" Height="56" Width="1008" FontSize="30" FontFamily="Arial" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Product Stock:" Height="49" Width="1008" FontSize="30" FontFamily="Arial" Margin="0,0,0,10"/>
+                <TextBox x:Name="productstockTextBox" Height="56" Width="1008" FontSize="30" FontFamily="Arial" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Product Category:" Height="50" Width="1008" FontSize="30" FontFamily="Arial" Margin="0,0,0,10"/>
+                <TextBox x:Name="productcategoryTextBox" Height="56" Width="1008" FontSize="30" FontFamily="Arial" Margin="0,0,0,30"/>
+                <Button Content="Add Product" Click="AddProduct_Click" Height="63" Width="1008" FontSize="30" FontFamily="Arial" Margin="0,0,0,10"/>
+            </StackPanel>
+
+
+        </Grid>
+    </Grid>
+</Window>
